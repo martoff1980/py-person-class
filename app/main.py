@@ -13,9 +13,9 @@ def create_person_list(people: list[dict]) -> list[Person]:
     instances = [Person(name=p["name"], age=p["age"]) for p in people]
 
     for person_dict, person_instance in zip(people, instances):
-        if "wife" in person_dict and person_dict["wife"] is not None:
+        if "wife" in person_dict and person_dict.get("wife") is not None:
             person_instance.wife = Person.people[person_dict["wife"]]
-        if "husband" in person_dict and person_dict["husband"] is not None:
+        if "husband" in person_dict and person_dict.get("husband") is not None:
             person_instance.husband = Person.people[person_dict["husband"]]
 
     return instances
